@@ -71,12 +71,9 @@ struct StartScreenView: View {
                    
                 }
                 Spacer()
-                HStack {
+                HStack{
                     Spacer()
-                    Button(action: {
-                                // Your button action
-                                print("Button tapped")
-                            }) {
+                    NavigationLink(destination: DatesScreenView()) {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 5)
                                         .fill(Color("PurpleButton"))
@@ -88,10 +85,31 @@ struct StartScreenView: View {
                                         .fontWeight(.semibold)
                                         .font(.title3)
                                 }
-                            }
+                    }
                 }
-                .padding(.trailing, 50)
-                .padding(.bottom, 10)
+                .padding(30)
+//                HStack {
+//                    Spacer()
+//                    Button(action: {
+//                                // Your button action
+//                                print("Button tapped")
+//                        
+//                            }) {
+//                                ZStack {
+//                                    RoundedRectangle(cornerRadius: 5)
+//                                        .fill(Color("PurpleButton"))
+//                                        .frame(maxWidth: 120, maxHeight: 44) // Adjust height as needed
+//                                        .shadow(radius: 5)
+//                                    
+//                                    Text("Next →")
+//                                        .foregroundColor(.white)
+//                                        .fontWeight(.semibold)
+//                                        .font(.title3)
+//                                }
+//                            }
+//                }
+//                .padding(.trailing, 50)
+//                .padding(.bottom, 10)
             }
         }
     }

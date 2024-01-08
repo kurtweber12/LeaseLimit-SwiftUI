@@ -14,12 +14,12 @@ struct MileageScreenView: View {
                 Image("Start Screen Background - Light Mode") // Replace with the name of your vector image asset
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    
             } dark: {
                 Image("Start Screen Background - Dark Mode") // Replace with the name of your vector image asset
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                   
             }
             
             VStack {
