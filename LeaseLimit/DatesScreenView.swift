@@ -119,7 +119,7 @@ struct DatesScreenView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    NavigationLink(destination: DatesScreenView()) {
+                    NavigationLink(destination: OverageScreenView()) {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 5)
                                         .fill(Color("PurpleButton"))
