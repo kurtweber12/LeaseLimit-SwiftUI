@@ -8,28 +8,28 @@
 import SwiftUI
 import Lottie
 
-//https://lottie.host/bc1f9fa5-1af9-43e7-8026-4a79b2609ac3/ACfNc6thTE.json
-
 struct OverageScreenView: View {
     @State var overageFee = ""
+    @State private var showAlert: Bool = false
     
-    
-    
+    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    @Environment(LeaseViewModel.self) var lease: LeaseViewModel
+
     var body: some View {
         ZStack {
             AdaptiveView {
-                Image("Start Screen Background - Light Mode") // Replace with the name of your vector image asset
+                Image("Start Screen Background - Light Mode")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
             } dark: {
-                Image("Start Screen Background - Dark Mode") // Replace with the name of your vector image asset
+                Image("Start Screen Background - Dark Mode")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
             }
             
             VStack {
                 Spacer()
-                LottieView(url: URL(string: "https://lottie.host/bc1f9fa5-1af9-43e7-8026-4a79b2609ac3/ACfNc6thTE.json")!)
+                LottieView(url: URL(string: ProcessInfo.processInfo.environment["OverageLottie"]!)!)
                     .frame(maxWidth: 400, maxHeight: 200)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 Spacer()
@@ -49,22 +49,30 @@ struct OverageScreenView: View {
                     .foregroundColor(.black)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.textBoxes) // Set the background color to white
-                            
+                            .fill(Color.textBoxes)
                     )
                     .padding()
                 Spacer()
                 Spacer()
                 HStack{
                     Spacer()
-                    NavigationLink(destination: MileageScreenView()) {
+                    Button(action: {
+                        guard !overageFee.isEmpty else {
+                            showAlert = true
+                            return
+                        }
+                        
+                        lease.overageFee(overage: overageFee)
+                        lease.updateUserDefaults(status: true)
+                        coordinator.popToRoot()
+                    }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 5)
                                 .fill(Color("PurpleButton"))
-                                .frame(maxWidth: 120, maxHeight: 44) // Adjust height as needed
+                                .frame(maxWidth: 120, maxHeight: 44)
                                 .shadow(radius: 5)
                             
-                            Text("Next →")
+                            Text("Finish →")
                                 .foregroundColor(.white)
                                 .fontWeight(.semibold)
                                 .font(.title3)
@@ -72,17 +80,19 @@ struct OverageScreenView: View {
                     }
                 }
                 .padding(30)
-                
-                
             }
             
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text("Overage fee must be numeric and not empty"), dismissButton: .default(Text("OK")))
         }
     }
 }
 
-#Preview {
-    OverageScreenView()
-}
-#Preview {
-    OverageScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-}
+//
+//#Preview {
+//    OverageScreenView()
+//}
+//#Preview {
+//    OverageScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+//}

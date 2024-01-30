@@ -12,6 +12,11 @@ import Lottie
 
 struct LeaseMileageScreenView: View {
     @State private var leaseMileage = ""
+    @State private var showAlert: Bool = false
+
+    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    @Environment(LeaseViewModel.self) var lease: LeaseViewModel
+
     
     var body: some View {
         ZStack {
@@ -25,7 +30,6 @@ struct LeaseMileageScreenView: View {
                     .edgesIgnoringSafeArea(.all)
             }
                 
-                    // Your content goes here
             VStack {
                 ZStack {
                     VStack {
@@ -37,13 +41,14 @@ struct LeaseMileageScreenView: View {
                             .offset(x: 0, y: -100)
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     }
-                   
+
                     AdaptiveView{
-                        LottieView(url: URL(string: "https://lottie.host/ba4e1f75-45f9-4f38-a21e-fc9fda2c4eba/OuSPeObGxb.json")!)
+                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["LeaseMileageLottieLight"]!)!)
                             .frame(maxWidth: 400, maxHeight: 300)
                             .shadow(color: .white, radius: 50)
+                        
                     } dark: {
-                        LottieView(url: URL(string: "https://lottie.host/9046c96a-5330-4385-9a4d-a9feb9b0f8bb/lsT9guz0Wf.json")!)
+                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["LeaseMileageLottieDark"]!)!)
                             .frame(maxWidth: 400, maxHeight: 300)
                     }
                 }
@@ -65,8 +70,7 @@ struct LeaseMileageScreenView: View {
                         .foregroundColor(.black)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.textBoxes) // Set the background color to white
-                                
+                                .fill(Color.textBoxes)
                         )
                         .padding()
                    
@@ -74,44 +78,37 @@ struct LeaseMileageScreenView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    NavigationLink(destination: DatesScreenView()) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .fill(Color("PurpleButton"))
-                                        .frame(maxWidth: 120, maxHeight: 44) // Adjust height as needed
-                                        .shadow(radius: 5)
-                                    
-                                    Text("Next →")
-                                        .foregroundColor(.white)
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                }
+                    Button(action: {
+                        guard !leaseMileage.isEmpty else {
+                            showAlert = true
+                            return
+                        }
+                        lease.yearlyMileage(yearlyMiles: leaseMileage)
+                        lease.printLease()
+                        
+                        coordinator.push(.datesScreen)
+                    }) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color("PurpleButton"))
+                                .frame(maxWidth: 120, maxHeight: 44)
+                                .shadow(radius: 5)
+                            
+                            Text("Next →")
+                                .foregroundColor(.white)
+                                .fontWeight(.semibold)
+                                .font(.title3)
+                        }
                     }
+                    
                 }
                 .padding(30)
-//                HStack {
-//                    Spacer()
-//                    Button(action: {
-//                                // Your button action
-//                                print("Button tapped")
-//                        
-//                            }) {
-//                                ZStack {
-//                                    RoundedRectangle(cornerRadius: 5)
-//                                        .fill(Color("PurpleButton"))
-//                                        .frame(maxWidth: 120, maxHeight: 44) // Adjust height as needed
-//                                        .shadow(radius: 5)
-//                                    
-//                                    Text("Next →")
-//                                        .foregroundColor(.white)
-//                                        .fontWeight(.semibold)
-//                                        .font(.title3)
-//                                }
-//                            }
-//                }
 //                .padding(.trailing, 50)
 //                .padding(.bottom, 10)
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text("Mileage input cannot be empty or non-numeric"), dismissButton: .default(Text("OK")))
         }
     }
     
@@ -121,9 +118,9 @@ struct LeaseMileageScreenView: View {
 
 
 
-#Preview {
-    LeaseMileageScreenView()
-}
-#Preview {
-    LeaseMileageScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-}
+//#Preview {
+//    LeaseMileageScreenView()
+//}
+//#Preview {
+//    LeaseMileageScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+//}

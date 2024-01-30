@@ -15,21 +15,30 @@ struct DatesScreenView: View {
     @State private var isStartDatePresented = false
     @State private var isEndDatePresented = false
     
+    @State private var showAlert: Bool = false
+
+    
+//    @Binding var path: [String]
+    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    @Environment(LeaseViewModel.self) var lease: LeaseViewModel
+
+
+    
     var body: some View {
         ZStack {
             AdaptiveView {
-                Image("Start Screen Background - Light Mode") // Replace with the name of your vector image asset
+                Image("Start Screen Background - Light Mode")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
             } dark: {
-                Image("Start Screen Background - Dark Mode") // Replace with the name of your vector image asset
+                Image("Start Screen Background - Dark Mode")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
             }
             
             VStack {
                 Spacer()
-                LottieView(url: URL(string: "https://lottie.host/17b03c12-6b66-4720-a77b-131965acfbdd/NCcQWQNcr9.json")!)
+                LottieView(url: URL(string: ProcessInfo.processInfo.environment["DateLottie"]!)!)
                     .frame(maxWidth: 400, maxHeight: 200)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 Spacer()
@@ -119,7 +128,18 @@ struct DatesScreenView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    NavigationLink(destination: OverageScreenView()) {
+                    Button(action: {
+                        guard endDate > startDate else {
+                            showAlert = true
+                            return
+                        }
+                        
+                        lease.startDate(start: startDate)
+                        lease.endDate(end: endDate)
+                        lease.printDates()
+                        
+                        coordinator.push(.mileageScreen)
+                    }) {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 5)
                                         .fill(Color("PurpleButton"))
@@ -137,19 +157,22 @@ struct DatesScreenView: View {
             }
             
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text("Start date must be before end date"), dismissButton: .default(Text("OK")))
+        }
     }
     
-    private func formattedDate(_ date: Date) -> String {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
-            return formatter.string(from: date)
-        }
+//    private func formattedDate(_ date: Date) -> String {
+//            let formatter = DateFormatter()
+//            formatter.dateStyle = .medium
+//            formatter.timeStyle = .none
+//            return formatter.string(from: date)
+//        }
 }
 
-#Preview {
-    DatesScreenView()
-}
-#Preview {
-    DatesScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-}
+//#Preview {
+//    DatesScreenView()
+//}
+//#Preview {
+//    DatesScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+//}

@@ -15,6 +15,10 @@
 		5D1CFE902B37FE6C00EA0410 /* LeaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1CFE8F2B37FE6C00EA0410 /* LeaseViewModel.swift */; };
 		5D869F6E2B4E236300B75A71 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D869F6D2B4E236300B75A71 /* HomeScreenView.swift */; };
 		5D869F702B4F234F00B75A71 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D869F6F2B4F234F00B75A71 /* StartScreenView.swift */; };
+		5D869F722B4F392500B75A71 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D869F712B4F392500B75A71 /* DateFormat.swift */; };
+		5D869F742B4F43DF00B75A71 /* HomeScreenDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D869F732B4F43DF00B75A71 /* HomeScreenDemo.swift */; };
+		5D869F772B4F450300B75A71 /* UpdateDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D869F762B4F450300B75A71 /* UpdateDateView.swift */; };
+		5D869F792B4F451200B75A71 /* UpdateMileageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D869F782B4F451200B75A71 /* UpdateMileageView.swift */; };
 		5D968B6B2B3D053D00645835 /* LeaseMileageScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D968B6A2B3D053D00645835 /* LeaseMileageScreenView.swift */; };
 		5D968B6D2B3D056300645835 /* Start Screen Background - Dark Mode.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5D968B6C2B3D056300645835 /* Start Screen Background - Dark Mode.svg */; };
 		5D968B6F2B44AB8D00645835 /* Start Screen Background - Light Mode.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5D968B6E2B44AB8D00645835 /* Start Screen Background - Light Mode.svg */; };
@@ -26,6 +30,8 @@
 		5D968B822B472FF100645835 /* ContentViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D968B812B472FF100645835 /* ContentViewOld.swift */; };
 		5D968B842B47309600645835 /* LeaseLimitLogo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5D968B832B47309600645835 /* LeaseLimitLogo.svg */; };
 		5D968B862B4730FF00645835 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D968B852B4730FF00645835 /* LottieView.swift */; };
+		5DC518B42B6821BF00019714 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518B32B6821BF00019714 /* NavigationCoordinator.swift */; };
+		5DC518B82B683E8500019714 /* LeaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518B72B683E8500019714 /* LeaseClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,10 @@
 		5D1CFE8F2B37FE6C00EA0410 /* LeaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseViewModel.swift; sourceTree = "<group>"; };
 		5D869F6D2B4E236300B75A71 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		5D869F6F2B4F234F00B75A71 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
+		5D869F712B4F392500B75A71 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		5D869F732B4F43DF00B75A71 /* HomeScreenDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDemo.swift; sourceTree = "<group>"; };
+		5D869F762B4F450300B75A71 /* UpdateDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDateView.swift; sourceTree = "<group>"; };
+		5D869F782B4F451200B75A71 /* UpdateMileageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMileageView.swift; sourceTree = "<group>"; };
 		5D968B6A2B3D053D00645835 /* LeaseMileageScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseMileageScreenView.swift; sourceTree = "<group>"; };
 		5D968B6C2B3D056300645835 /* Start Screen Background - Dark Mode.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Start Screen Background - Dark Mode.svg"; sourceTree = "<group>"; };
 		5D968B6E2B44AB8D00645835 /* Start Screen Background - Light Mode.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Start Screen Background - Light Mode.svg"; sourceTree = "<group>"; };
@@ -49,6 +59,8 @@
 		5D968B812B472FF100645835 /* ContentViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewOld.swift; sourceTree = "<group>"; };
 		5D968B832B47309600645835 /* LeaseLimitLogo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LeaseLimitLogo.svg; sourceTree = "<group>"; };
 		5D968B852B4730FF00645835 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		5DC518B32B6821BF00019714 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		5DC518B72B683E8500019714 /* LeaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,15 +94,12 @@
 		5D1CFE7E2B364B4E00EA0410 /* LeaseLimit */ = {
 			isa = PBXGroup;
 			children = (
+				5DC518B62B68228D00019714 /* Home */,
+				5DC518B52B6821D400019714 /* Walkthrough */,
+				5DC518B22B6821A400019714 /* Navigation */,
 				5D968B7F2B46638B00645835 /* Fonts */,
 				5D968B7A2B4625D900645835 /* AdaptiveView.swift */,
 				5D1CFE812B364B4E00EA0410 /* ContentView.swift */,
-				5D869F6D2B4E236300B75A71 /* HomeScreenView.swift */,
-				5D869F6F2B4F234F00B75A71 /* StartScreenView.swift */,
-				5D968B6A2B3D053D00645835 /* LeaseMileageScreenView.swift */,
-				5D968B722B4621FE00645835 /* DatesScreenView.swift */,
-				5D968B702B4621EA00645835 /* MileageScreenView.swift */,
-				5D968B742B46221100645835 /* OverageScreenView.swift */,
 				5D968B6C2B3D056300645835 /* Start Screen Background - Dark Mode.svg */,
 				5D968B6E2B44AB8D00645835 /* Start Screen Background - Light Mode.svg */,
 				5D968B832B47309600645835 /* LeaseLimitLogo.svg */,
@@ -101,6 +110,9 @@
 				5D1CFE8F2B37FE6C00EA0410 /* LeaseViewModel.swift */,
 				5D1CFE852B364B4F00EA0410 /* Preview Content */,
 				5D968B852B4730FF00645835 /* LottieView.swift */,
+				5D869F712B4F392500B75A71 /* DateFormat.swift */,
+				5D869F732B4F43DF00B75A71 /* HomeScreenDemo.swift */,
+				5DC518B72B683E8500019714 /* LeaseClass.swift */,
 			);
 			path = LeaseLimit;
 			sourceTree = "<group>";
@@ -113,12 +125,50 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5D869F752B4F44E800B75A71 /* UpdateScreens */ = {
+			isa = PBXGroup;
+			children = (
+				5D869F762B4F450300B75A71 /* UpdateDateView.swift */,
+				5D869F782B4F451200B75A71 /* UpdateMileageView.swift */,
+			);
+			path = UpdateScreens;
+			sourceTree = "<group>";
+		};
 		5D968B7F2B46638B00645835 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				5D968B802B46641D00645835 /* Baloo2-VariableFont_wght.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5DC518B22B6821A400019714 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				5DC518B32B6821BF00019714 /* NavigationCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		5DC518B52B6821D400019714 /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				5D869F6F2B4F234F00B75A71 /* StartScreenView.swift */,
+				5D968B6A2B3D053D00645835 /* LeaseMileageScreenView.swift */,
+				5D968B722B4621FE00645835 /* DatesScreenView.swift */,
+				5D968B702B4621EA00645835 /* MileageScreenView.swift */,
+				5D968B742B46221100645835 /* OverageScreenView.swift */,
+			);
+			path = Walkthrough;
+			sourceTree = "<group>";
+		};
+		5DC518B62B68228D00019714 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5D869F6D2B4E236300B75A71 /* HomeScreenView.swift */,
+				5D869F752B4F44E800B75A71 /* UpdateScreens */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,14 +251,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D1CFE822B364B4E00EA0410 /* ContentView.swift in Sources */,
+				5D869F742B4F43DF00B75A71 /* HomeScreenDemo.swift in Sources */,
 				5D1CFE902B37FE6C00EA0410 /* LeaseViewModel.swift in Sources */,
+				5D869F792B4F451200B75A71 /* UpdateMileageView.swift in Sources */,
+				5DC518B42B6821BF00019714 /* NavigationCoordinator.swift in Sources */,
 				5D1CFE802B364B4E00EA0410 /* LeaseLimitApp.swift in Sources */,
 				5D968B732B4621FE00645835 /* DatesScreenView.swift in Sources */,
 				5D968B712B4621EA00645835 /* MileageScreenView.swift in Sources */,
+				5DC518B82B683E8500019714 /* LeaseClass.swift in Sources */,
 				5D1CFE8E2B364C9F00EA0410 /* LeaseModel.swift in Sources */,
+				5D869F722B4F392500B75A71 /* DateFormat.swift in Sources */,
 				5D968B7B2B4625D900645835 /* AdaptiveView.swift in Sources */,
 				5D968B822B472FF100645835 /* ContentViewOld.swift in Sources */,
 				5D968B752B46221100645835 /* OverageScreenView.swift in Sources */,
+				5D869F772B4F450300B75A71 /* UpdateDateView.swift in Sources */,
 				5D869F702B4F234F00B75A71 /* StartScreenView.swift in Sources */,
 				5D968B6B2B3D053D00645835 /* LeaseMileageScreenView.swift in Sources */,
 				5D968B862B4730FF00645835 /* LottieView.swift in Sources */,

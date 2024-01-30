@@ -21,8 +21,34 @@ import SwiftData
 // render the "home" screen then
 
 struct ContentView: View {
+    @State private var path = [String]()
+    
+    @Environment(\.modelContext) var context
+    
+    @State private var leaseExists: Bool = false
+    
+    @State private var coordinator = NavigationCoordinator()
+    
+    @State private var lease = LeaseViewModel()
+    
+    private var isWalkThroughComplete = UserDefaults.standard.bool(forKey: "isWalkThroughCompleted")
+    
     var body: some View {
-        StartScreenView()
+        NavigationStack(path: $coordinator.paths) {
+            if UserDefaults.standard.bool(forKey: "isWalkThroughCompleted") {
+                HomeScreenView()
+            } else {
+                coordinator.navigate(to: .startScreen)
+                    .navigationDestination(for: Screens.self) { screen in
+                        coordinator.navigate(to: screen)
+                    }
+            }
+        }
+        .environment(coordinator)
+        .environment(lease)
+
+////            if UserDefaults.standard.bool(forKey: "isWalkThroughCompleted") {
+
     }
 }
 

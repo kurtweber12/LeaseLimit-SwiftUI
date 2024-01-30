@@ -178,13 +178,13 @@ struct ContentViewOld: View {
                                 Text("Home Screen")
                                     .font(.largeTitle)
 
-                                NavigationLink(destination: StartScreenView()) {
-                                    Text("Go to Start Screen")
-                                        .foregroundColor(.blue)
-                                        .padding()
-                                        .background(Color.gray)
-                                        .cornerRadius(10)
-                                }
+//                                NavigationLink(//destination: //StartScreenView()) {
+//                                    Text("Go to Start Screen")
+//                                        .foregroundColor(.blue)
+//                                        .padding()
+//                                        .background(Color.gray)
+//                                        .cornerRadius(10)
+//                                }
                             }
                             .navigationTitle("Navigation Example")
                         }

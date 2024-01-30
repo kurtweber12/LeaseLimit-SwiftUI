@@ -8,29 +8,32 @@
 import SwiftUI
 import Lottie
 
-//https://lottie.host/82efb605-e531-4584-995f-e016ad17c3a1/YpLPsvUAdz.json
-//https://lottie.host/4155e67f-4f76-4a7f-b83e-bb7eeda22a6f/b5qxJTTp1a.json
 struct MileageScreenView: View {
     @State var currentMileage = ""
     @State var startMileage = ""
     
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
+
+    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    @Environment(LeaseViewModel.self) var lease: LeaseViewModel
+
     var body: some View {
         ZStack {
             AdaptiveView {
-                Image("Start Screen Background - Light Mode") // Replace with the name of your vector image asset
+                Image("Start Screen Background - Light Mode")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     
             } dark: {
-                Image("Start Screen Background - Dark Mode") // Replace with the name of your vector image asset
+                Image("Start Screen Background - Dark Mode")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
-                   
             }
             
             VStack {
                 Spacer()
-                LottieView(url: URL(string: "https://lottie.host/4155e67f-4f76-4a7f-b83e-bb7eeda22a6f/b5qxJTTp1a.json")!)
+                LottieView(url: URL(string: ProcessInfo.processInfo.environment["MileageLottie"]!)!)
                     .frame(maxWidth: 400, maxHeight: 300)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
 
@@ -51,8 +54,7 @@ struct MileageScreenView: View {
                         .foregroundColor(.black)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.textBoxes) // Set the background color to white
-                            
+                                .fill(Color.textBoxes)
                         )
                         .padding()
                 }
@@ -74,8 +76,7 @@ struct MileageScreenView: View {
                         .foregroundColor(.black)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.textBoxes) // Set the background color to white
-                            
+                                .fill(Color.textBoxes)
                         )
                         .padding()
                 }
@@ -83,11 +84,28 @@ struct MileageScreenView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    NavigationLink(destination: HomeScreenView()) {
+                    Button(action: {
+                        guard !currentMileage.isEmpty && !startMileage.isEmpty else {
+                            alertMessage = "Start mileage and current mileage must be numeric and not empty"
+                            showAlert = true
+                            return
+                        }
+                        
+                        guard currentMileage >= startMileage else {
+                            alertMessage = "Start mileage cannot be more than current mileage"
+                            showAlert = true
+                            return
+                        }
+                        
+                        lease.startMileage(startMiles: startMileage)
+                        lease.currentMileage(currentMiles: currentMileage)
+                        lease.printMileage()
+                        coordinator.push(.overageScreen)
+                    }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 5)
                                 .fill(Color("PurpleButton"))
-                                .frame(maxWidth: 120, maxHeight: 44) // Adjust height as needed
+                                .frame(maxWidth: 120, maxHeight: 44)
                                 .shadow(radius: 5)
                             
                             Text("Next →")
@@ -98,15 +116,17 @@ struct MileageScreenView: View {
                     }
                 }
                 .padding(30)
-                
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
 }
 
-#Preview {
-    MileageScreenView()
-}
-#Preview {
-    MileageScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-}
+//#Preview {
+//    MileageScreenView()
+//}
+//#Preview {
+//    MileageScreenView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+//}
