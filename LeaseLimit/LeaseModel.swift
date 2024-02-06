@@ -12,18 +12,19 @@ import SwiftData
 
 @Model
 class LeaseModel {
-    let currentDate: Date
-    let startDate: Date
-    let endDate: Date
-    let mileageLimit: Int
-    let monthlyMileage: Double
-    let dailyMileage: Double
-    let startMileage: Int
-    let curretMileage: Int
-    let overageFee: Double
-    let leaseExists: Bool
+    var currentDate: Date
+    var startDate: Date
+    var endDate: Date
+    var mileageLimit: Int
+    var monthlyMileage: Double
+    var dailyMileage: Double
+    var startMileage: Int
+    var currentMileage: Int
+    var remainingMileage: Int
+    var overageFee: Double
+
     
-    init(currentDate: Date, startDate: Date, endDate: Date, mileageLimit: Int, monthlyMileage: Double, dailyMileage: Double, startMileage: Int, currentMileage: Int, overageFee: Double) {
+    init(currentDate: Date, startDate: Date, endDate: Date, mileageLimit: Int, monthlyMileage: Double, dailyMileage: Double, startMileage: Int, currentMileage: Int, remainingMileage: Int, overageFee: Double) {
         self.currentDate = currentDate
         self.startDate = startDate
         self.endDate = endDate
@@ -31,9 +32,9 @@ class LeaseModel {
         self.monthlyMileage = monthlyMileage
         self.dailyMileage = dailyMileage
         self.startMileage = startMileage
-        self.curretMileage = currentMileage
+        self.currentMileage = currentMileage
+        self.remainingMileage = remainingMileage
         self.overageFee = overageFee
-        self.leaseExists = false
     }
     
 }

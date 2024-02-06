@@ -17,8 +17,6 @@ struct DatesScreenView: View {
     
     @State private var showAlert: Bool = false
 
-    
-//    @Binding var path: [String]
     @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
     @Environment(LeaseViewModel.self) var lease: LeaseViewModel
 
@@ -134,8 +132,8 @@ struct DatesScreenView: View {
                             return
                         }
                         
-                        lease.startDate(start: startDate)
-                        lease.endDate(end: endDate)
+                        lease.setStartDate(start: startDate)
+                        lease.setEndDate(end: endDate)
                         lease.printDates()
                         
                         coordinator.push(.mileageScreen)
@@ -143,7 +141,7 @@ struct DatesScreenView: View {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 5)
                                         .fill(Color("PurpleButton"))
-                                        .frame(maxWidth: 120, maxHeight: 44) // Adjust height as needed
+                                        .frame(maxWidth: 120, maxHeight: 44)
                                         .shadow(radius: 5)
                                     
                                     Text("Next →")
@@ -161,13 +159,6 @@ struct DatesScreenView: View {
             Alert(title: Text("Error"), message: Text("Start date must be before end date"), dismissButton: .default(Text("OK")))
         }
     }
-    
-//    private func formattedDate(_ date: Date) -> String {
-//            let formatter = DateFormatter()
-//            formatter.dateStyle = .medium
-//            formatter.timeStyle = .none
-//            return formatter.string(from: date)
-//        }
 }
 
 //#Preview {

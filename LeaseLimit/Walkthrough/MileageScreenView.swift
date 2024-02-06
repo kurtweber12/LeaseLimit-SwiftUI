@@ -85,20 +85,22 @@ struct MileageScreenView: View {
                 HStack{
                     Spacer()
                     Button(action: {
+                        let currentMileageInt = Int(currentMileage)
+                        let startMileageInt = Int(startMileage)
                         guard !currentMileage.isEmpty && !startMileage.isEmpty else {
                             alertMessage = "Start mileage and current mileage must be numeric and not empty"
                             showAlert = true
                             return
                         }
                         
-                        guard currentMileage >= startMileage else {
+                        guard currentMileageInt! >= startMileageInt! else {
                             alertMessage = "Start mileage cannot be more than current mileage"
                             showAlert = true
                             return
                         }
                         
-                        lease.startMileage(startMiles: startMileage)
-                        lease.currentMileage(currentMiles: currentMileage)
+                        lease.setStartMileage(startMiles: startMileage)
+                        lease.setCurrentMileage(currentMiles: currentMileage)
                         lease.printMileage()
                         coordinator.push(.overageScreen)
                     }) {

@@ -10,11 +10,16 @@ import SwiftUI
 import Observation
 
 enum Screens {
+    case homeScreen
     case startScreen
     case leaseMileageScreen
     case datesScreen
     case mileageScreen
     case overageScreen
+    case updateCurrentDateScreen
+    case updateCurrentMileageScreen
+    case editLeaseScreen
+    
 }
 
 @Observable
@@ -24,6 +29,8 @@ class NavigationCoordinator {
     @ViewBuilder
     func navigate(to screen: Screens) -> some View {
         switch screen {
+        case .homeScreen:
+            HomeScreenView()
         case .startScreen:
             StartScreenView()
         case .leaseMileageScreen:
@@ -34,8 +41,13 @@ class NavigationCoordinator {
             MileageScreenView()
         case .overageScreen:
             OverageScreenView()
+        case .updateCurrentDateScreen:
+            UpdateDateView()
+        case .updateCurrentMileageScreen:
+            UpdateMileageView()
+        case .editLeaseScreen:
+            EditLeaseScreenView()
         }
-    
     }
 
     func push(_ screen: Screens) {
@@ -49,4 +61,6 @@ class NavigationCoordinator {
     func popToRoot() {
         paths.removeLast(paths.count)
     }
+    
+    // func here to query the model and push it to the edit screen
 }

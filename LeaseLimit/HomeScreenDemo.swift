@@ -5,6 +5,9 @@
 //  Created by Kurt Weber on 1/10/24.
 //
 
+// this file was just used for creating a styling that resembled a List {}
+// List {} takes up a whole screen so we created a new view that had the same
+// styling but allowed for smaller space taken
 import SwiftUI
 
 struct HomeScreenDemo: View {

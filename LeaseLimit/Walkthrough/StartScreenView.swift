@@ -11,23 +11,8 @@ import SwiftData
 struct StartScreenView: View {
     @Query private var leases: [LeaseModel]
     
-    //@Binding var path: [String]
     @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
     @Environment(LeaseViewModel.self) var lease: LeaseViewModel
-
-    
-//    NavigationLink(value: "View 2") {
-//        Text("Go to Screen 2")
-//    }
-//    .navigationDestination(for: String.self) { pathValue in
-//        // depending on the value you pass you will navigate accrodingly
-//        if pathValue == "View 2" {
-//            Screen2(path: $path)
-//        } else if pathValue == "View 3" {
-//            Screen3(path: $path)
-//        }
-//    }
-    
     
     var body: some View {
         NavigationStack {
@@ -73,23 +58,6 @@ struct StartScreenView: View {
                                     .font(.title3)
                             }
                         }
-//                        .navigationDestination(for: String.self) { string in
-//                            // add logic here for creating lease object
-//                            LeaseMileageScreenView(path: $path)
-//                        }
-                        
-//                            Button(action: {
-//                                    print("Created Lease")
-//                                    path.append("MileageScreen")
-//                                    //addLease()
-//    //                                for lease in leases {
-//    //                                    print(lease)
-//    //                                }
-//                                    
-//                                }) {
-//                                    
-//                                    
-//                                }
 
                     }
                     .padding(30)
@@ -108,14 +76,6 @@ struct StartScreenView: View {
         //context.insert(newLease)
     }
 }
-
-//#Preview {
-//    StartScreenView(path: <#Binding<[String]>#>)
-//}
-//#Preview {
-//    StartScreenView(path: <#Binding<[String]>#>).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-//}
-
 
 //#Preview {
 //    StartScreenView()

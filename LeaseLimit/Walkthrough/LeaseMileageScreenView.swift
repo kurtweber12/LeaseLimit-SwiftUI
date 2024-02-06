@@ -54,7 +54,7 @@ struct LeaseMileageScreenView: View {
                 }
                 VStack {
                     HStack {
-                        Text("What is your yearly allowed \nmileage?")
+                        Text("What is your total allowed \nmileage?")
                             .font(.title2)
                             .fontWeight(.semibold)
                             .padding(.leading, 35)
@@ -83,7 +83,7 @@ struct LeaseMileageScreenView: View {
                             showAlert = true
                             return
                         }
-                        lease.yearlyMileage(yearlyMiles: leaseMileage)
+                        lease.setYearlyMileage(yearlyMiles: leaseMileage)
                         lease.printLease()
                         
                         coordinator.push(.datesScreen)

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Lottie
+import SwiftData
 
 struct OverageScreenView: View {
     @State var overageFee = ""
@@ -14,6 +15,8 @@ struct OverageScreenView: View {
     
     @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
     @Environment(LeaseViewModel.self) var lease: LeaseViewModel
+    @Environment(\.modelContext) var context
+
 
     var body: some View {
         ZStack {
@@ -62,8 +65,28 @@ struct OverageScreenView: View {
                             return
                         }
                         
-                        lease.overageFee(overage: overageFee)
+                        lease.setOverageFee(overage: overageFee)
                         lease.updateUserDefaults(status: true)
+                        lease.finishLease()
+                        let leaseobj: LeaseObject = lease.getLease()
+                        print(leaseobj)
+                        
+                        let leaseDB = LeaseModel(currentDate: leaseobj.currentDate,
+                                                             startDate: leaseobj.startDate,
+                                                             endDate: leaseobj.endDate,
+                                                             mileageLimit: leaseobj.mileageLimit,
+                                                             monthlyMileage: leaseobj.monthlyMileage,
+                                                             dailyMileage: leaseobj.dailyMileage,
+                                                             startMileage: leaseobj.startMileage,
+                                                             currentMileage: leaseobj.currentMileage,
+                                                             remainingMileage: leaseobj.remainingMileage,
+                                                             overageFee: leaseobj.overageFee)
+                        context.insert(leaseDB)
+                        
+                        print(leaseDB)
+                        
+                        // need to make LeaseModel object based off lease
+                        
                         coordinator.popToRoot()
                     }) {
                         ZStack {

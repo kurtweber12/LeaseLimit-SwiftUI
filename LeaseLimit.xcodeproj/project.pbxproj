@@ -31,7 +31,9 @@
 		5D968B842B47309600645835 /* LeaseLimitLogo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5D968B832B47309600645835 /* LeaseLimitLogo.svg */; };
 		5D968B862B4730FF00645835 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D968B852B4730FF00645835 /* LottieView.swift */; };
 		5DC518B42B6821BF00019714 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518B32B6821BF00019714 /* NavigationCoordinator.swift */; };
-		5DC518B82B683E8500019714 /* LeaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518B72B683E8500019714 /* LeaseClass.swift */; };
+		5DC518B82B683E8500019714 /* LeaseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518B72B683E8500019714 /* LeaseStruct.swift */; };
+		5DC518BC2B6985CC00019714 /* EditLeaseScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518BB2B6985CC00019714 /* EditLeaseScreenView.swift */; };
+		5DC518BE2B698D0200019714 /* CustomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518BD2B698D0200019714 /* CustomListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +62,9 @@
 		5D968B832B47309600645835 /* LeaseLimitLogo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LeaseLimitLogo.svg; sourceTree = "<group>"; };
 		5D968B852B4730FF00645835 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		5DC518B32B6821BF00019714 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
-		5DC518B72B683E8500019714 /* LeaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseClass.swift; sourceTree = "<group>"; };
+		5DC518B72B683E8500019714 /* LeaseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseStruct.swift; sourceTree = "<group>"; };
+		5DC518BB2B6985CC00019714 /* EditLeaseScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLeaseScreenView.swift; sourceTree = "<group>"; };
+		5DC518BD2B698D0200019714 /* CustomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +116,7 @@
 				5D968B852B4730FF00645835 /* LottieView.swift */,
 				5D869F712B4F392500B75A71 /* DateFormat.swift */,
 				5D869F732B4F43DF00B75A71 /* HomeScreenDemo.swift */,
-				5DC518B72B683E8500019714 /* LeaseClass.swift */,
+				5DC518B72B683E8500019714 /* LeaseStruct.swift */,
 			);
 			path = LeaseLimit;
 			sourceTree = "<group>";
@@ -130,6 +134,7 @@
 			children = (
 				5D869F762B4F450300B75A71 /* UpdateDateView.swift */,
 				5D869F782B4F451200B75A71 /* UpdateMileageView.swift */,
+				5DC518BB2B6985CC00019714 /* EditLeaseScreenView.swift */,
 			);
 			path = UpdateScreens;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			children = (
 				5D869F6D2B4E236300B75A71 /* HomeScreenView.swift */,
 				5D869F752B4F44E800B75A71 /* UpdateScreens */,
+				5DC518BD2B698D0200019714 /* CustomListView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -253,15 +259,17 @@
 				5D1CFE822B364B4E00EA0410 /* ContentView.swift in Sources */,
 				5D869F742B4F43DF00B75A71 /* HomeScreenDemo.swift in Sources */,
 				5D1CFE902B37FE6C00EA0410 /* LeaseViewModel.swift in Sources */,
+				5DC518BC2B6985CC00019714 /* EditLeaseScreenView.swift in Sources */,
 				5D869F792B4F451200B75A71 /* UpdateMileageView.swift in Sources */,
 				5DC518B42B6821BF00019714 /* NavigationCoordinator.swift in Sources */,
 				5D1CFE802B364B4E00EA0410 /* LeaseLimitApp.swift in Sources */,
 				5D968B732B4621FE00645835 /* DatesScreenView.swift in Sources */,
 				5D968B712B4621EA00645835 /* MileageScreenView.swift in Sources */,
-				5DC518B82B683E8500019714 /* LeaseClass.swift in Sources */,
+				5DC518B82B683E8500019714 /* LeaseStruct.swift in Sources */,
 				5D1CFE8E2B364C9F00EA0410 /* LeaseModel.swift in Sources */,
 				5D869F722B4F392500B75A71 /* DateFormat.swift in Sources */,
 				5D968B7B2B4625D900645835 /* AdaptiveView.swift in Sources */,
+				5DC518BE2B698D0200019714 /* CustomListView.swift in Sources */,
 				5D968B822B472FF100645835 /* ContentViewOld.swift in Sources */,
 				5D968B752B46221100645835 /* OverageScreenView.swift in Sources */,
 				5D869F772B4F450300B75A71 /* UpdateDateView.swift in Sources */,

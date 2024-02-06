@@ -23,10 +23,8 @@ import SwiftData
 struct ContentView: View {
     @State private var path = [String]()
     
-    @Environment(\.modelContext) var context
-    
-    @State private var leaseExists: Bool = false
-    
+    //@Environment(\.modelContext) var context
+
     @State private var coordinator = NavigationCoordinator()
     
     @State private var lease = LeaseViewModel()
@@ -36,7 +34,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $coordinator.paths) {
             if UserDefaults.standard.bool(forKey: "isWalkThroughCompleted") {
-                HomeScreenView()
+                coordinator.navigate(to: .homeScreen)
+                    .navigationDestination(for: Screens.self) { screen in
+                        coordinator.navigate(to: screen)
+                    }
             } else {
                 coordinator.navigate(to: .startScreen)
                     .navigationDestination(for: Screens.self) { screen in
@@ -47,8 +48,6 @@ struct ContentView: View {
         .environment(coordinator)
         .environment(lease)
 
-////            if UserDefaults.standard.bool(forKey: "isWalkThroughCompleted") {
-
     }
 }
 
@@ -58,3 +57,4 @@ struct ContentView: View {
 #Preview {
     ContentView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 }
+
