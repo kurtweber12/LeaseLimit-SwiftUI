@@ -34,6 +34,7 @@
 		5DC518B82B683E8500019714 /* LeaseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518B72B683E8500019714 /* LeaseStruct.swift */; };
 		5DC518BC2B6985CC00019714 /* EditLeaseScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518BB2B6985CC00019714 /* EditLeaseScreenView.swift */; };
 		5DC518BE2B698D0200019714 /* CustomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518BD2B698D0200019714 /* CustomListView.swift */; };
+		5DF423C72B72DD2A000E588C /* Baloo2-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D968B802B46641D00645835 /* Baloo2-VariableFont_wght.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		5DC518B72B683E8500019714 /* LeaseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaseStruct.swift; sourceTree = "<group>"; };
 		5DC518BB2B6985CC00019714 /* EditLeaseScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLeaseScreenView.swift; sourceTree = "<group>"; };
 		5DC518BD2B698D0200019714 /* CustomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListView.swift; sourceTree = "<group>"; };
+		5DF423C62B72DA01000E588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		5D1CFE7E2B364B4E00EA0410 /* LeaseLimit */ = {
 			isa = PBXGroup;
 			children = (
+				5DF423C62B72DA01000E588C /* Info.plist */,
 				5DC518B62B68228D00019714 /* Home */,
 				5DC518B52B6821D400019714 /* Walkthrough */,
 				5DC518B22B6821A400019714 /* Navigation */,
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF423C72B72DD2A000E588C /* Baloo2-VariableFont_wght.ttf in Resources */,
 				5D968B6D2B3D056300645835 /* Start Screen Background - Dark Mode.svg in Resources */,
 				5D1CFE872B364B4F00EA0410 /* Preview Assets.xcassets in Resources */,
 				5D968B6F2B44AB8D00645835 /* Start Screen Background - Light Mode.svg in Resources */,
@@ -413,6 +417,7 @@
 				DEVELOPMENT_TEAM = 29B7UY4877;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LeaseLimit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -442,6 +447,7 @@
 				DEVELOPMENT_TEAM = 29B7UY4877;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LeaseLimit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

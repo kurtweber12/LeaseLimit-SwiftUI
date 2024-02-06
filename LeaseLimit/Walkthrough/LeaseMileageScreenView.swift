@@ -36,8 +36,8 @@ struct LeaseMileageScreenView: View {
                         Text("Let's Get Started!")
                             .foregroundColor(.white)
                             //.font(.largeTitle)
-                            .font(Font.custom("Baloo2-VariableFont_wght", size: 18))
-                            .bold()
+                            .font(Font.custom("Baloo2-Bold", size: 32))
+                            //.bold()
                             .offset(x: 0, y: -100)
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     }

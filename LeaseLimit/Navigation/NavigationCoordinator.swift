@@ -30,7 +30,7 @@ class NavigationCoordinator {
     func navigate(to screen: Screens) -> some View {
         switch screen {
         case .homeScreen:
-            HomeScreenView()
+            HomeScreenView().transition(.opacity)
         case .startScreen:
             StartScreenView()
         case .leaseMileageScreen:

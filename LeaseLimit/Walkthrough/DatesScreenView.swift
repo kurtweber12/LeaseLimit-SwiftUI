@@ -112,11 +112,13 @@ struct DatesScreenView: View {
                                         .labelsHidden()
                                         .datePickerStyle(WheelDatePickerStyle())
                                         .padding()
+                                        
 
                                     Button("Done") {
                                         isEndDatePresented.toggle()
                                     }
                                     .padding()
+                                    .foregroundColor(.purpleButton)
                                 }
                             }
                         }
