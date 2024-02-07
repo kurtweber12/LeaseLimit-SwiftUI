@@ -10,7 +10,6 @@ import SwiftData
 
 struct UpdateMileageView: View {
     @State private var newMileage: String = ""
-    
     @State private var showAlert: Bool = false
     
     @Query var items: [LeaseModel]
@@ -99,7 +98,7 @@ struct UpdateMileageView: View {
     }
     
     func remainingMiles() -> Int {
-        return (mainLease?.mileageLimit ?? 0) - (mainLease?.currentMileage  ?? 0)
+        return (mainLease?.mileageLimit ?? 0) - (mainLease?.currentMileage  ?? 0) + (mainLease?.startMileage ?? 0)
     }
     
     func dailyMileage() -> Double {

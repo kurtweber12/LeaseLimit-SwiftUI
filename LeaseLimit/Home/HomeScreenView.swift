@@ -155,19 +155,19 @@ struct HomeScreenView: View {
                                         .foregroundStyle(Color.secondary)
                                 }
                             }
-//                            Divider()
-//                            Button(action: {
-//                                coordinator.push(.editLeaseScreen)
-//                                
-//                            }) {
-//                                HStack {
-//                                    Text("Edit Lease")
-//                                    Spacer()
-//                                    Image(systemName: "chevron.right")
-//                                        .font(.system(size: 16))
-//                                        .foregroundStyle(Color.secondary)
-//                                }
-//                            }
+                            Divider()
+                            Button(action: {
+                                coordinator.push(.editLeaseScreen)
+                                
+                            }) {
+                                HStack {
+                                    Text("Edit Lease")
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 16))
+                                        .foregroundStyle(Color.secondary)
+                                }
+                            }
                             
                         }
                         .padding(.vertical, 12)

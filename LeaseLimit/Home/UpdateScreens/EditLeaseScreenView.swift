@@ -392,8 +392,8 @@ struct EditLeaseScreenView: View {
                         print("button pressed")
                         // update lease
                         // navigate back to root
-                        
-                        
+                        updateLease()
+                        coordinator.pop()
                     }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 5)
@@ -427,6 +427,88 @@ struct EditLeaseScreenView: View {
             self.overageFee = String(editLease?.overageFee ?? 0)
             
         }
+    }
+    
+    func updateLease() {
+        setCurrentDate()
+        setStartDate()
+        setEndDate()
+        
+        editLease?.startMileage = Int(startMileage)!
+        editLease?.currentMileage = Int(currentMileage)!
+        editLease?.mileageLimit = Int(mileageLimit)!
+        
+        editLease?.overageFee = Double(overageFee)!
+        
+        editLease?.remainingMileage = remainingMiles()
+        editLease?.monthlyMileage = monthlyMileage()
+        editLease?.dailyMileage = dailyMileage()
+    }
+    
+    func remainingMiles() -> Int {
+        return (editLease?.mileageLimit ?? 0) - (editLease?.currentMileage  ?? 0) + (editLease?.startMileage ?? 0)
+    }
+    
+    func dailyMileage() -> Double {
+        let remainingDays = daysRemainingInLease()
+        let remainingMiles = remainingMiles()
+        let dailyMileageAllowance = Double(remainingMiles) / Double(remainingDays)
+        
+        return dailyMileageAllowance
+    }
+    
+    func daysRemainingInLease() -> Int {
+        let calendar = Calendar.current
+        
+        // calculate the remaining number of days in the lease period
+        let daysRange = calendar.dateComponents([.day], from: editLease?.currentDate ?? Date(), to: editLease?.endDate ?? Date())
+            
+        let remainingDays = daysRange.day!
+        print("Total Days Remaining In Lease: \(remainingDays)")
+        return remainingDays
+    }
+    
+    func monthlyMileage() -> Double {
+        let totalMonths = totalMonthsInLease()
+        
+        let monthlyMileageAllowance = Double(editLease?.remainingMileage ?? 0) / Double(totalMonths)
+        return monthlyMileageAllowance
+       
+    }
+    
+    func totalDaysInLease() -> Int {
+        let calendar = Calendar.current
+        
+        // calculate the total number of days in the lease period
+        let daysRange = calendar.dateComponents([.day], from: editLease?.startDate ?? Date(), to: editLease?.endDate ?? Date())
+            
+        // Adding 1 to include start day
+        let totalDays = daysRange.day! + 1
+        print("Total Days In Lease: \(totalDays)")
+        return totalDays
+    }
+    
+    func totalMonthsInLease() -> Int {
+        let calendar = Calendar.current
+        
+        // calculate the total number of months in the lease period
+        let monthsRange = calendar.dateComponents([.month], from: editLease?.startDate ?? Date(), to: editLease?.endDate ?? Date())
+            
+        // Adding 1 to include end day
+        let totalMonths = monthsRange.month! + 1
+        print("Total Months In Lease: \(totalMonths)")
+        return totalMonths
+    }
+    
+    func setCurrentDate() {
+        editLease?.currentDate = currentDate
+    }
+    
+    func setStartDate() {
+        editLease?.startDate = startDate
+    }
+    func setEndDate() {
+        editLease?.endDate = endDate
     }
 }
 
