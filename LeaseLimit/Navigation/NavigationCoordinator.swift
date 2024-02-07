@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Observation
+import SwiftData
 
 enum Screens {
     case homeScreen
@@ -27,7 +28,7 @@ class NavigationCoordinator {
     var paths = NavigationPath()
 
     @ViewBuilder
-    func navigate(to screen: Screens) -> some View {
+    func navigate(to screen: Screens/*, valueToPass: LeaseModel*/) -> some View {
         switch screen {
         case .homeScreen:
             HomeScreenView().transition(.opacity)

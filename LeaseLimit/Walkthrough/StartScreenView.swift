@@ -57,7 +57,6 @@ struct StartScreenView: View {
                                 .font(.title3)
                         }
                     }
-
                 }
                 .padding(30)
             }

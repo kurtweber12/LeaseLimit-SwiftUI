@@ -10,6 +10,8 @@ import SwiftData
 
 struct EditLeaseScreenView: View {
     @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+//    @Environment(UserData.self) var userData: UserData
+
     //@Environment(LeaseViewModel.self) var lease: LeaseViewModel
     
     @Query var items: [LeaseModel]
@@ -349,6 +351,12 @@ struct EditLeaseScreenView: View {
                         let currentMileageInt = Int(currentMileage)
                         let startMileageInt = Int(startMileage)
                         
+                        // used to compare just the dates and not the time stamps
+                        let calendar = Calendar.current
+                        let startDateDate = calendar.startOfDay(for: startDate)
+                        let currentDateDate = calendar.startOfDay(for: currentDate)
+                        let endDateDate = calendar.startOfDay(for: endDate)
+                        
                         guard !startMileage.isEmpty && !mileageLimit.isEmpty && !currentMileage.isEmpty else {
                             alertMessage = "Can not contain empty fields"
                             showAlert = true
@@ -361,19 +369,21 @@ struct EditLeaseScreenView: View {
                             return
                         }
                         
-                        guard startDate <= currentDate else {
+                        guard startDateDate <= currentDateDate else {
                             alertMessage = "Current date can not be before start date"
                             showAlert = true
+                            print(currentDate)
+                            print(startDate)
                             return
                         }
                         
-                        guard currentDate <= endDate else {
+                        guard currentDateDate <= endDateDate else {
                             alertMessage = "Current date can not be after end date"
                             showAlert = true
                             return
                         }
                         
-                        guard startDate < endDate else {
+                        guard startDateDate < endDateDate else {
                             alertMessage = "End date must occur after start date"
                             showAlert = true
                             return
@@ -382,6 +392,7 @@ struct EditLeaseScreenView: View {
                         print("button pressed")
                         // update lease
                         // navigate back to root
+                        
                         
                     }) {
                         ZStack {
@@ -408,7 +419,7 @@ struct EditLeaseScreenView: View {
         }
         .onAppear {
             self.startDate = editLease?.startDate ?? Date()
-            self.endDate = editLease?.startDate ?? Date()
+            self.endDate = editLease?.endDate ?? Date()
             self.currentDate = editLease?.startDate ?? Date()
             self.startMileage = String(editLease?.startMileage ?? 0)
             self.mileageLimit = String(editLease?.mileageLimit ?? 0)

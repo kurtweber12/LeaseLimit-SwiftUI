@@ -174,7 +174,6 @@ struct HomeScreenView: View {
                         .padding(.horizontal)
                         .foregroundStyle(Color.primary)
                         
-                        
                     }
                     .background(RoundedRectangle(cornerRadius: 10)
                         .fill(Color(uiColor: .secondarySystemBackground))
@@ -237,6 +236,7 @@ struct HomeScreenView: View {
         }
 
     }
+    
 }
 
 //#Preview {

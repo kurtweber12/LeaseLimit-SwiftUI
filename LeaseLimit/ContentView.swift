@@ -29,6 +29,8 @@ struct ContentView: View {
     
     @State private var lease = LeaseViewModel()
     
+    @Query var items: [LeaseModel]
+    
     private var isWalkThroughComplete = UserDefaults.standard.bool(forKey: "isWalkThroughCompleted")
     
     var body: some View {
@@ -47,7 +49,12 @@ struct ContentView: View {
         }
         .environment(coordinator)
         .environment(lease)
-
+        .onAppear {
+            if items.isEmpty {
+                print("empty")
+            }
+            
+        }
     }
 }
 
