@@ -75,6 +75,21 @@
             value = "https://lottie.host/9046c96a-5330-4385-9a4d-a9feb9b0f8bb/lsT9guz0Wf.json"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "LeaseMileageLottieTest"
+            value = "https://lottie.host/2d330ca1-6b03-4f6e-adfc-4ef48f383c86/VDpkVGwHMY.json"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "MainCarLottieNew"
+            value = "https://lottie.host/c0affbf5-fe53-4bbd-be60-6f04e3a348f1/EdHUQfrhNQ.json"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "https://lottie.host/c0affbf5-fe53-4bbd-be60-6f04e3a348f1/EdHUQfrhNQ.json"
+            value = ""
+            isEnabled = "NO">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction

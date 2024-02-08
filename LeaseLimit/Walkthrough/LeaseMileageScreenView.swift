@@ -43,12 +43,12 @@ struct LeaseMileageScreenView: View {
                     }
 
                     AdaptiveView{
-                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["LeaseMileageLottieLight"]!)!)
+                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["MainCarLottieNew"]!)!)
                             .frame(maxWidth: 400, maxHeight: 300)
                             .shadow(color: .white, radius: 50)
                         
                     } dark: {
-                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["LeaseMileageLottieDark"]!)!)
+                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["MainCarLottieNew"]!)!)
                             .frame(maxWidth: 400, maxHeight: 300)
                     }
                 }

@@ -19,8 +19,10 @@ class LeaseModel {
     var monthlyMileage: Double
     var dailyMileage: Double
     var startMileage: Int
+    
+    @Attribute(originalName: "curretMileage")
     var currentMileage: Int
-    var remainingMileage: Int
+    var remainingMileage: Int = 0 // this = 0 is needed for the lightweight data migration since its not an optional value and we added it after the model was created
     var overageFee: Double
 
     
