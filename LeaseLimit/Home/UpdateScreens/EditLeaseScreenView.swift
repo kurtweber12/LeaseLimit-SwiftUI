@@ -417,6 +417,8 @@ struct EditLeaseScreenView: View {
                                     .foregroundColor(.white)
                                     .fontWeight(.semibold)
                                     .font(.title3)
+                                    .padding()
+                                    
                             }
                         }
                     }
