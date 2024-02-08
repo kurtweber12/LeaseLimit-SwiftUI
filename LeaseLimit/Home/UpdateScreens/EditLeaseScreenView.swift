@@ -223,7 +223,7 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
-                                        .accentColor(.black)
+                                        .accentColor(.adaptiveAccent)
                                         .autocorrectionDisabled()
                                     Spacer()
                                 }
@@ -255,7 +255,7 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
-                                        .accentColor(.black)
+                                        .accentColor(.adaptiveAccent)
                                         .autocorrectionDisabled()
                                     Spacer()
                                 }
@@ -290,7 +290,7 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
-                                        .accentColor(.black)
+                                        .accentColor(.adaptiveAccent)
                                         .autocorrectionDisabled()
                                     Spacer()
                                 }
@@ -335,7 +335,7 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
-                                        .accentColor(.black)
+                                        .accentColor(.adaptiveAccent)
                                         .autocorrectionDisabled()
                                     Spacer()
                                 }

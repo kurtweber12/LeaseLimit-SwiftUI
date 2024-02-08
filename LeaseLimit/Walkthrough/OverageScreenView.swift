@@ -62,6 +62,7 @@ struct OverageScreenView: View {
                     )
                     .padding()
                     .autocorrectionDisabled()
+                    .accentColor(.black)
                 Spacer()
                 Spacer()
                 HStack{
