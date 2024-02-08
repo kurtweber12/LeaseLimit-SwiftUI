@@ -47,278 +47,279 @@ struct EditLeaseScreenView: View {
                     .edgesIgnoringSafeArea(.all)
             }
             
-            VStack {
-                Text("Edit Lease")
-                    .foregroundStyle(Color.white)
-                    .fontWeight(.semibold)
-                    .font(.title3)
-                    
+            ScrollView {
                 VStack {
-                    // Start Date Begin
-                    Button(action: {
-                        print("start date")
-                        isStartDatePresented.toggle()
-                    }) {
+                    Text("Edit Lease")
+                        .foregroundStyle(Color.white)
+                        .fontWeight(.semibold)
+                        .font(.title3)
+                    
+                    VStack {
+                        // Start Date Begin
+                        Button(action: {
+                            print("start date")
+                            isStartDatePresented.toggle()
+                        }) {
+                            HStack {
+                                HStack {
+                                    VStack {
+                                        HStack{
+                                            Text("Start Date")
+                                                .font(.subheadline)
+                                                .foregroundStyle(Color.secondary)
+                                            Spacer()
+                                        }
+                                        HStack {
+                                            Text("\(formattedDate(startDate))")
+                                                .foregroundStyle(Color.primary)
+                                                .fontWeight(.semibold)
+                                                .font(.title3)
+                                            Spacer()
+                                        }
+                                    }.padding(.vertical, 12)
+                                    
+                                    Spacer()
+                                    Image(systemName: "calendar")
+                                        .font(.system(size: 16))
+                                        .foregroundStyle(Color.secondary)
+                                }
+                                .padding(.horizontal)
+                            }
+                            .sheet(isPresented: $isStartDatePresented) {
+                                VStack {
+                                    DatePicker("", selection: $startDate, displayedComponents: .date)
+                                        .labelsHidden()
+                                        .datePickerStyle(WheelDatePickerStyle())
+                                        .padding()
+                                    
+                                    Button("Done") {
+                                        isStartDatePresented.toggle()
+                                    }
+                                    .padding()
+                                    .foregroundColor(.purpleButton)
+                                }
+                            }
+                        }
+                        
+                        // Start Date End
+                        
+                        // End Date Begin
+                        Button(action: {
+                            print("end date")
+                            isEndDatePresented.toggle()
+                        }) {
+                            HStack {
+                                HStack {
+                                    VStack {
+                                        HStack{
+                                            Text("End Date")
+                                                .font(.subheadline)
+                                                .foregroundStyle(Color.secondary)
+                                            Spacer()
+                                        }
+                                        HStack {
+                                            Text("\(formattedDate(endDate))")
+                                                .foregroundStyle(Color.primary)
+                                                .fontWeight(.semibold)
+                                                .font(.title3)
+                                            Spacer()
+                                        }
+                                    }.padding(.vertical, 12)
+                                    
+                                    Spacer()
+                                    Image(systemName: "calendar")
+                                        .font(.system(size: 16))
+                                        .foregroundStyle(Color.secondary)
+                                }
+                                .padding(.horizontal)
+                            }
+                            .sheet(isPresented: $isEndDatePresented) {
+                                VStack {
+                                    DatePicker("", selection: $endDate, displayedComponents: .date)
+                                        .labelsHidden()
+                                        .datePickerStyle(WheelDatePickerStyle())
+                                        .padding()
+                                    
+                                    Button("Done") {
+                                        isEndDatePresented.toggle()
+                                    }
+                                    .padding()
+                                    .foregroundColor(.purpleButton)
+                                }
+                            }
+                        }
+                        
+                        // End Date End
+                        
+                        // Current Date Begin
+                        Button(action: {
+                            print("current date")
+                            isCurrentDatePresented.toggle()
+                        }) {
+                            HStack {
+                                HStack {
+                                    VStack {
+                                        HStack{
+                                            Text("Current Date")
+                                                .font(.subheadline)
+                                                .foregroundStyle(Color.secondary)
+                                            Spacer()
+                                        }
+                                        HStack {
+                                            Text("\(formattedDate(currentDate))")
+                                                .foregroundStyle(Color.primary)
+                                                .fontWeight(.semibold)
+                                                .font(.title3)
+                                            Spacer()
+                                        }
+                                    }.padding(.vertical, 12)
+                                    
+                                    Spacer()
+                                    Image(systemName: "calendar")
+                                        .font(.system(size: 16))
+                                        .foregroundStyle(Color.secondary)
+                                }
+                                .padding(.horizontal)
+                            }
+                            .sheet(isPresented: $isCurrentDatePresented) {
+                                VStack {
+                                    DatePicker("", selection: $currentDate, displayedComponents: .date)
+                                        .labelsHidden()
+                                        .datePickerStyle(WheelDatePickerStyle())
+                                        .padding()
+                                    
+                                    Button("Done") {
+                                        isCurrentDatePresented.toggle()
+                                    }
+                                    .padding()
+                                    .foregroundColor(.purpleButton)
+                                }
+                            }
+                        }
+                        
+                        // current Date End
+                    }
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(uiColor: .secondarySystemBackground))
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    
+                    // Mileage VStack Begin
+                    
+                    VStack {
+                        // Start Mileage Begin
                         HStack {
                             HStack {
                                 VStack {
                                     HStack{
-                                        Text("Start Date")
+                                        Text("Start Mileage")
                                             .font(.subheadline)
                                             .foregroundStyle(Color.secondary)
                                         Spacer()
                                     }
                                     HStack {
-                                        Text("\(formattedDate(startDate))")
+                                        TextField("Start Mileage", text: $startMileage)
                                             .foregroundStyle(Color.primary)
                                             .fontWeight(.semibold)
                                             .font(.title3)
+                                            .accentColor(.adaptiveAccent)
+                                            .autocorrectionDisabled()
                                         Spacer()
                                     }
                                 }.padding(.vertical, 12)
                                 
                                 Spacer()
-                                Image(systemName: "calendar")
+                                Image(systemName: "square.and.pencil")
                                     .font(.system(size: 16))
                                     .foregroundStyle(Color.secondary)
                             }
                             .padding(.horizontal)
                         }
-                        .sheet(isPresented: $isStartDatePresented) {
-                            VStack {
-                                DatePicker("", selection: $startDate, displayedComponents: .date)
-                                    .labelsHidden()
-                                    .datePickerStyle(WheelDatePickerStyle())
-                                    .padding()
-
-                                Button("Done") {
-                                    isStartDatePresented.toggle()
-                                }
-                                .padding()
-                                .foregroundColor(.purpleButton)
-                            }
-                        }
-                    }
-               
-                    // Start Date End
-                    
-                    // End Date Begin
-                    Button(action: {
-                        print("end date")
-                        isEndDatePresented.toggle()
-                    }) {
+                        
+                        // Start Mileage End
+                        Divider().padding(.horizontal)
+                        
+                        // Mileage Limit Begin
                         HStack {
                             HStack {
                                 VStack {
                                     HStack{
-                                        Text("End Date")
+                                        Text("Lease Mileage Lmit")
                                             .font(.subheadline)
                                             .foregroundStyle(Color.secondary)
                                         Spacer()
                                     }
                                     HStack {
-                                        Text("\(formattedDate(endDate))")
+                                        TextField("Lease Mileage Limit", text: $mileageLimit)
                                             .foregroundStyle(Color.primary)
                                             .fontWeight(.semibold)
                                             .font(.title3)
+                                            .accentColor(.adaptiveAccent)
+                                            .autocorrectionDisabled()
                                         Spacer()
                                     }
                                 }.padding(.vertical, 12)
                                 
                                 Spacer()
-                                Image(systemName: "calendar")
+                                Image(systemName: "square.and.pencil")
                                     .font(.system(size: 16))
                                     .foregroundStyle(Color.secondary)
                             }
                             .padding(.horizontal)
                         }
-                        .sheet(isPresented: $isEndDatePresented) {
-                            VStack {
-                                DatePicker("", selection: $endDate, displayedComponents: .date)
-                                    .labelsHidden()
-                                    .datePickerStyle(WheelDatePickerStyle())
-                                    .padding()
-
-                                Button("Done") {
-                                    isEndDatePresented.toggle()
-                                }
-                                .padding()
-                                .foregroundColor(.purpleButton)
-                            }
-                        }
-                    }
-               
-                    // End Date End
-                    
-                    // Current Date Begin
-                    Button(action: {
-                        print("current date")
-                        isCurrentDatePresented.toggle()
-                    }) {
+                        
+                        
+                        
+                        // Mileage Limit End
+                        Divider().padding(.horizontal)
+                        
+                        // Current Mileage Begin
+                        
                         HStack {
                             HStack {
                                 VStack {
                                     HStack{
-                                        Text("Current Date")
+                                        Text("Current Mileage")
                                             .font(.subheadline)
                                             .foregroundStyle(Color.secondary)
                                         Spacer()
                                     }
                                     HStack {
-                                        Text("\(formattedDate(currentDate))")
+                                        TextField("Current Mileage", text: $currentMileage)
                                             .foregroundStyle(Color.primary)
                                             .fontWeight(.semibold)
                                             .font(.title3)
+                                            .accentColor(.adaptiveAccent)
+                                            .autocorrectionDisabled()
                                         Spacer()
                                     }
                                 }.padding(.vertical, 12)
                                 
                                 Spacer()
-                                Image(systemName: "calendar")
+                                Image(systemName: "square.and.pencil")
                                     .font(.system(size: 16))
                                     .foregroundStyle(Color.secondary)
                             }
                             .padding(.horizontal)
                         }
-                        .sheet(isPresented: $isCurrentDatePresented) {
-                            VStack {
-                                DatePicker("", selection: $currentDate, displayedComponents: .date)
-                                    .labelsHidden()
-                                    .datePickerStyle(WheelDatePickerStyle())
-                                    .padding()
-
-                                Button("Done") {
-                                    isCurrentDatePresented.toggle()
-                                }
-                                .padding()
-                                .foregroundColor(.purpleButton)
-                            }
-                        }
+                        
+                        
+                        // Current Mileage End
                     }
-               
-                    // current Date End
-                }
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(uiColor: .secondarySystemBackground))
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                )
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                
-                // Mileage VStack Begin
-                
-                VStack {
-                    // Start Mileage Begin
-                    HStack {
-                        HStack {
-                            VStack {
-                                HStack{
-                                    Text("Start Mileage")
-                                        .font(.subheadline)
-                                        .foregroundStyle(Color.secondary)
-                                    Spacer()
-                                }
-                                HStack {
-                                    TextField("Start Mileage", text: $startMileage)
-                                        .foregroundStyle(Color.primary)
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                        .accentColor(.adaptiveAccent)
-                                        .autocorrectionDisabled()
-                                    Spacer()
-                                }
-                            }.padding(.vertical, 12)
-                            
-                            Spacer()
-                            Image(systemName: "square.and.pencil")
-                                .font(.system(size: 16))
-                                .foregroundStyle(Color.secondary)
-                        }
-                        .padding(.horizontal)
-                    }
-                    
-                    // Start Mileage End
-                    Divider().padding(.horizontal)
-                    
-                    // Mileage Limit Begin
-                    HStack {
-                        HStack {
-                            VStack {
-                                HStack{
-                                    Text("Lease Mileage Lmit")
-                                        .font(.subheadline)
-                                        .foregroundStyle(Color.secondary)
-                                    Spacer()
-                                }
-                                HStack {
-                                    TextField("Lease Mileage Limit", text: $mileageLimit)
-                                        .foregroundStyle(Color.primary)
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                        .accentColor(.adaptiveAccent)
-                                        .autocorrectionDisabled()
-                                    Spacer()
-                                }
-                            }.padding(.vertical, 12)
-                            
-                            Spacer()
-                            Image(systemName: "square.and.pencil")
-                                .font(.system(size: 16))
-                                .foregroundStyle(Color.secondary)
-                        }
-                        .padding(.horizontal)
-                    }
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(uiColor: .secondarySystemBackground))
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
                     
                     
+                    // mileage VStack End
                     
-                    // Mileage Limit End
-                    Divider().padding(.horizontal)
                     
-                    // Current Mileage Begin
-                   
-                    HStack {
-                        HStack {
-                            VStack {
-                                HStack{
-                                    Text("Current Mileage")
-                                        .font(.subheadline)
-                                        .foregroundStyle(Color.secondary)
-                                    Spacer()
-                                }
-                                HStack {
-                                    TextField("Current Mileage", text: $currentMileage)
-                                        .foregroundStyle(Color.primary)
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                        .accentColor(.adaptiveAccent)
-                                        .autocorrectionDisabled()
-                                    Spacer()
-                                }
-                            }.padding(.vertical, 12)
-                            
-                            Spacer()
-                            Image(systemName: "square.and.pencil")
-                                .font(.system(size: 16))
-                                .foregroundStyle(Color.secondary)
-                        }
-                        .padding(.horizontal)
-                    }
-                    
-               
-                    // Current Mileage End
-                }
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(uiColor: .secondarySystemBackground))
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                )
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                
-                
-                // mileage VStack End
-                
-                
-                // Overage fee start
+                    // Overage fee start
                     HStack {
                         HStack {
                             VStack {
@@ -348,81 +349,82 @@ struct EditLeaseScreenView: View {
                         }
                         .padding(.horizontal)
                     }
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(uiColor: .secondarySystemBackground))
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                )
-                .padding(.horizontal, 20)
-                // overage fee end
-                
-                // Update Button Section Begin
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        let currentMileageInt = Int(currentMileage)
-                        let startMileageInt = Int(startMileage)
-                        
-                        // used to compare just the dates and not the time stamps
-                        let calendar = Calendar.current
-                        let startDateDate = calendar.startOfDay(for: startDate)
-                        let currentDateDate = calendar.startOfDay(for: currentDate)
-                        let endDateDate = calendar.startOfDay(for: endDate)
-                        
-                        guard !startMileage.isEmpty && !mileageLimit.isEmpty && !currentMileage.isEmpty else {
-                            alertMessage = "Can not contain empty fields"
-                            showAlert = true
-                            return
-                        }
-                        
-                        guard startMileageInt! <= currentMileageInt! else {
-                            alertMessage = "Current mileage can not be less than start mileage"
-                            showAlert = true
-                            return
-                        }
-                        
-                        guard startDateDate <= currentDateDate else {
-                            alertMessage = "Current date can not be before start date"
-                            showAlert = true
-                            print(currentDate)
-                            print(startDate)
-                            return
-                        }
-                        
-                        guard currentDateDate <= endDateDate else {
-                            alertMessage = "Current date can not be after end date"
-                            showAlert = true
-                            return
-                        }
-                        
-                        guard startDateDate < endDateDate else {
-                            alertMessage = "End date must occur after start date"
-                            showAlert = true
-                            return
-                        }
-                        
-                        print("button pressed")
-                        // update lease
-                        // navigate back to root
-                        updateLease()
-                        coordinator.pop()
-                    }) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 5)
-                                .fill(Color("PurpleButton"))
-                                .frame(maxWidth: 120, maxHeight: 44)
-                                .shadow(radius: 5)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(uiColor: .secondarySystemBackground))
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    )
+                    .padding(.horizontal, 20)
+                    // overage fee end
+                    
+                    // Update Button Section Begin
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            let currentMileageInt = Int(currentMileage)
+                            let startMileageInt = Int(startMileage)
                             
-                            Text("Update")
-                                .foregroundColor(.white)
-                                .fontWeight(.semibold)
-                                .font(.title3)
+                            // used to compare just the dates and not the time stamps
+                            let calendar = Calendar.current
+                            let startDateDate = calendar.startOfDay(for: startDate)
+                            let currentDateDate = calendar.startOfDay(for: currentDate)
+                            let endDateDate = calendar.startOfDay(for: endDate)
+                            
+                            guard !startMileage.isEmpty && !mileageLimit.isEmpty && !currentMileage.isEmpty else {
+                                alertMessage = "Can not contain empty fields"
+                                showAlert = true
+                                return
+                            }
+                            
+                            guard startMileageInt! <= currentMileageInt! else {
+                                alertMessage = "Current mileage can not be less than start mileage"
+                                showAlert = true
+                                return
+                            }
+                            
+                            guard startDateDate <= currentDateDate else {
+                                alertMessage = "Current date can not be before start date"
+                                showAlert = true
+                                print(currentDate)
+                                print(startDate)
+                                return
+                            }
+                            
+                            guard currentDateDate <= endDateDate else {
+                                alertMessage = "Current date can not be after end date"
+                                showAlert = true
+                                return
+                            }
+                            
+                            guard startDateDate < endDateDate else {
+                                alertMessage = "End date must occur after start date"
+                                showAlert = true
+                                return
+                            }
+                            
+                            print("button pressed")
+                            // update lease
+                            // navigate back to root
+                            updateLease()
+                            coordinator.pop()
+                        }) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 5)
+                                    .fill(Color("PurpleButton"))
+                                    .frame(maxWidth: 120, maxHeight: 44)
+                                    .shadow(radius: 5)
+                                
+                                Text("Update")
+                                    .foregroundColor(.white)
+                                    .fontWeight(.semibold)
+                                    .font(.title3)
+                            }
                         }
                     }
+                    .padding(.top)
+                    .padding(.horizontal, 20)
+                    // Update Button Section End
+                    Spacer()
                 }
-                .padding(.top)
-                .padding(.horizontal, 20)
-                // Update Button Section End
-                Spacer()
             }
         }
         .alert(isPresented: $showAlert) {
