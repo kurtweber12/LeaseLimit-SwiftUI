@@ -45,6 +45,8 @@ struct UpdateMileageView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.textBoxes)
                         )
+                        .accentColor(.black)
+                        .autocorrectionDisabled()
                     
                     HStack {
                         Spacer()

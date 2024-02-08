@@ -36,9 +36,15 @@ struct DatesScreenView: View {
             
             VStack {
                 Spacer()
-                LottieView(url: URL(string: ProcessInfo.processInfo.environment["DateLottie"]!)!)
-                    .frame(maxWidth: 400, maxHeight: 200)
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+//                LottieView(url: URL(string: ProcessInfo.processInfo.environment["DateLottie"]!)!)
+//                    .frame(maxWidth: 400, maxHeight: 200)
+//                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                let urlString = "https://lottie.host/17b03c12-6b66-4720-a77b-131965acfbdd/NCcQWQNcr9.json"
+                if let url = URL(string: urlString) {
+                    LottieView(url: url)
+                        .frame(maxWidth: 400, maxHeight: 200)
+                        .shadow(radius: 10)
+                }
                 Spacer()
                 HStack {
                     VStack {

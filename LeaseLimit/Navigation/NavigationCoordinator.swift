@@ -20,6 +20,7 @@ enum Screens {
     case updateCurrentDateScreen
     case updateCurrentMileageScreen
     case editLeaseScreen
+    case dummy
     
 }
 
@@ -48,6 +49,8 @@ class NavigationCoordinator {
             UpdateMileageView()
         case .editLeaseScreen:
             EditLeaseScreenView()
+        case .dummy:
+            DummyView()
         }
     }
 

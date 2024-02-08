@@ -33,9 +33,15 @@ struct MileageScreenView: View {
             
             VStack {
                 Spacer()
-                LottieView(url: URL(string: ProcessInfo.processInfo.environment["MileageLottie"]!)!)
-                    .frame(maxWidth: 400, maxHeight: 300)
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+//                LottieView(url: URL(string: ProcessInfo.processInfo.environment["MileageLottie"]!)!)
+//                    .frame(maxWidth: 400, maxHeight: 300)
+//                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                let urlString = "https://lottie.host/4155e67f-4f76-4a7f-b83e-bb7eeda22a6f/b5qxJTTp1a.json"
+                if let url = URL(string: urlString) {
+                    LottieView(url: url)
+                        .frame(maxWidth: 400, maxHeight: 300)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                }
 
                 VStack {
                     HStack {
@@ -57,6 +63,8 @@ struct MileageScreenView: View {
                                 .fill(Color.textBoxes)
                         )
                         .padding()
+                        .autocorrectionDisabled()
+                        .accentColor(.black)
                 }
                 .padding(.bottom, 30)
                 VStack {
@@ -79,6 +87,8 @@ struct MileageScreenView: View {
                                 .fill(Color.textBoxes)
                         )
                         .padding()
+                        .autocorrectionDisabled()
+                        .accentColor(.black)
                 }
                 Spacer()
                 Spacer()

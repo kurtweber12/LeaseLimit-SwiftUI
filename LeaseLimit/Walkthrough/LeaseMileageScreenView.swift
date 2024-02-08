@@ -35,21 +35,26 @@ struct LeaseMileageScreenView: View {
                     VStack {
                         Text("Let's Get Started!")
                             .foregroundColor(.white)
-                            //.font(.largeTitle)
                             .font(Font.custom("Baloo2-Bold", size: 32))
-                            //.bold()
                             .offset(x: 0, y: -100)
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     }
 
-                    AdaptiveView{
-                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["MainCarLottieNew"]!)!)
+//                    AdaptiveView{
+//                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["MainCarLottieNew"]!)!)
+//                            .frame(maxWidth: 400, maxHeight: 300)
+//                            .shadow(color: .white, radius: 50)
+//                        
+//                    } dark: {
+//                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["MainCarLottieNew"]!)!)
+//                            .frame(maxWidth: 400, maxHeight: 300)
+//                    }
+//                    if let urlString = ProcessInfo.processInfo.environment["MainCarLottieNew"],
+                    let urlString = "https://lottie.host/c0affbf5-fe53-4bbd-be60-6f04e3a348f1/EdHUQfrhNQ.json"
+                    if let url = URL(string: urlString) {
+                        LottieView(url: url)
                             .frame(maxWidth: 400, maxHeight: 300)
                             .shadow(color: .white, radius: 50)
-                        
-                    } dark: {
-                        LottieView(url: URL(string: ProcessInfo.processInfo.environment["MainCarLottieNew"]!)!)
-                            .frame(maxWidth: 400, maxHeight: 300)
                     }
                 }
                 VStack {
@@ -73,6 +78,8 @@ struct LeaseMileageScreenView: View {
                                 .fill(Color.textBoxes)
                         )
                         .padding()
+                        .autocorrectionDisabled()
+                        .accentColor(.black)
                    
                 }
                 Spacer()

@@ -220,6 +220,8 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
+                                        .accentColor(.black)
+                                        .autocorrectionDisabled()
                                     Spacer()
                                 }
                             }.padding(.vertical, 12)
@@ -250,6 +252,8 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
+                                        .accentColor(.black)
+                                        .autocorrectionDisabled()
                                     Spacer()
                                 }
                             }.padding(.vertical, 12)
@@ -283,6 +287,8 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
+                                        .accentColor(.black)
+                                        .autocorrectionDisabled()
                                     Spacer()
                                 }
                             }.padding(.vertical, 12)
@@ -326,6 +332,8 @@ struct EditLeaseScreenView: View {
                                         .foregroundStyle(Color.primary)
                                         .fontWeight(.semibold)
                                         .font(.title3)
+                                        .accentColor(.black)
+                                        .autocorrectionDisabled()
                                     Spacer()
                                 }
                             }.padding(.vertical, 12)
@@ -420,7 +428,7 @@ struct EditLeaseScreenView: View {
         .onAppear {
             self.startDate = editLease?.startDate ?? Date()
             self.endDate = editLease?.endDate ?? Date()
-            self.currentDate = editLease?.startDate ?? Date()
+            self.currentDate = editLease?.currentDate ?? Date()
             self.startMileage = String(editLease?.startMileage ?? 0)
             self.mileageLimit = String(editLease?.mileageLimit ?? 0)
             self.currentMileage = String(editLease?.currentMileage ?? 0)
@@ -465,7 +473,7 @@ struct EditLeaseScreenView: View {
             
         let remainingDays = daysRange.day!
         print("Total Days Remaining In Lease: \(remainingDays)")
-        return remainingDays
+        return remainingDays+1
     }
     
     func monthlyMileage() -> Double {

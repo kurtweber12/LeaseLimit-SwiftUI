@@ -32,9 +32,15 @@ struct OverageScreenView: View {
             
             VStack {
                 Spacer()
-                LottieView(url: URL(string: ProcessInfo.processInfo.environment["OverageLottie"]!)!)
-                    .frame(maxWidth: 400, maxHeight: 200)
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+//                LottieView(url: URL(string: ProcessInfo.processInfo.environment["OverageLottie"]!)!)
+//                    .frame(maxWidth: 400, maxHeight: 200)
+//                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                let urlString = "https://lottie.host/bc1f9fa5-1af9-43e7-8026-4a79b2609ac3/ACfNc6thTE.json"
+                if let url = URL(string: urlString) {
+                    LottieView(url: url)
+                        .frame(maxWidth: 400, maxHeight: 200)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                }
                 Spacer()
                 HStack {
                     Text("What is your overage cost ($) \nper mile? ")
@@ -55,6 +61,7 @@ struct OverageScreenView: View {
                             .fill(Color.textBoxes)
                     )
                     .padding()
+                    .autocorrectionDisabled()
                 Spacer()
                 Spacer()
                 HStack{

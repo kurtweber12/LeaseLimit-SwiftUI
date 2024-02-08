@@ -9,8 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct StartScreenView: View {
-    @Query private var leases: [LeaseModel]
-    
     @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
     @Environment(LeaseViewModel.self) var lease: LeaseViewModel
     
@@ -43,12 +41,13 @@ struct StartScreenView: View {
                     Spacer()
                      
                     Button(action: {
+//                        coordinator.push(.dummy)
                         coordinator.push(.leaseMileageScreen)
                     }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 5)
                                 .fill(Color("PurpleButton"))
-                                .frame(maxWidth: 170, maxHeight: 44) // Adjust height as needed
+                                .frame(maxWidth: 170, maxHeight: 44)
                                 .shadow(radius: 5)
                             
                             Text("Get Started →")
@@ -62,16 +61,6 @@ struct StartScreenView: View {
             }
         }
         
-    }
-    
-    func addLease() {
-        for lease in leases {
-            print(lease)
-        }
-        // create lease with empty fields which we will update on the following screens
-        //let newLease = LeaseModel(currentDate: Date(), startDate: Date(), endDate: Date(), mileageLimit: 0, monthlyMileage: 0.0, dailyMileage: 0.0, startMileage: 0, currentMileage: 0, overageFee: 0.0)
-        // add lease to database
-        //context.insert(newLease)
     }
 }
 

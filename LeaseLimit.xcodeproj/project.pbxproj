@@ -36,6 +36,7 @@
 		5DC518BE2B698D0200019714 /* CustomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC518BD2B698D0200019714 /* CustomListView.swift */; };
 		5DF423C72B72DD2A000E588C /* Baloo2-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D968B802B46641D00645835 /* Baloo2-VariableFont_wght.ttf */; };
 		5DF423CB2B7490FF000E588C /* appicon_dropshadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF423CA2B7490FE000E588C /* appicon_dropshadow.png */; };
+		5DF423CF2B7554FD000E588C /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF423CE2B7554FD000E588C /* DummyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		5DC518BD2B698D0200019714 /* CustomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListView.swift; sourceTree = "<group>"; };
 		5DF423C62B72DA01000E588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5DF423CA2B7490FE000E588C /* appicon_dropshadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_dropshadow.png; sourceTree = "<group>"; };
+		5DF423CE2B7554FD000E588C /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				5D869F712B4F392500B75A71 /* DateFormat.swift */,
 				5D869F732B4F43DF00B75A71 /* HomeScreenDemo.swift */,
 				5DC518B72B683E8500019714 /* LeaseStruct.swift */,
+				5DF423CE2B7554FD000E588C /* DummyView.swift */,
 			);
 			path = LeaseLimit;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				5D869F792B4F451200B75A71 /* UpdateMileageView.swift in Sources */,
 				5DC518B42B6821BF00019714 /* NavigationCoordinator.swift in Sources */,
 				5D1CFE802B364B4E00EA0410 /* LeaseLimitApp.swift in Sources */,
+				5DF423CF2B7554FD000E588C /* DummyView.swift in Sources */,
 				5D968B732B4621FE00645835 /* DatesScreenView.swift in Sources */,
 				5D968B712B4621EA00645835 /* MileageScreenView.swift in Sources */,
 				5DC518B82B683E8500019714 /* LeaseStruct.swift in Sources */,
@@ -416,7 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"LeaseLimit/Preview Content\"";
 				DEVELOPMENT_TEAM = 29B7UY4877;
 				ENABLE_PREVIEWS = YES;
@@ -450,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"LeaseLimit/Preview Content\"";
 				DEVELOPMENT_TEAM = 29B7UY4877;
 				ENABLE_PREVIEWS = YES;

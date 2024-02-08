@@ -12,6 +12,7 @@ struct HomeScreenView: View {
     @State private var currentDate = Date()
     @State private var currentMileage = ""
     @FocusState private var isMileageFocused: Bool
+    @State private var calculatedOverage = "0.00"
     
     @State private var showAlert: Bool = false
     
@@ -104,6 +105,12 @@ struct HomeScreenView: View {
                                 Spacer()
                                 Text(String(mainLease?.remainingMileage ?? 0))
                             }
+                            Divider()
+                            HStack {
+                                Text("Est. Overage Cost")
+                                Spacer()
+                                Text("$ \(calculatedOverage)")
+                            }
                             
                         }
                         .padding(.vertical, 12)
@@ -133,6 +140,7 @@ struct HomeScreenView: View {
                                 // set the date to be current right when this is pressed
                                 lease.setCurrentDate()
                                 mainLease?.currentDate = lease.getCurrentDate()
+                                calculateOverage()
                                 // uncomment above line once db is integrated
                             }) {
                                 HStack {
@@ -234,7 +242,74 @@ struct HomeScreenView: View {
                     showAlert = false
                 })
         }
+        .onAppear{calculateOverage()}
 
+    }
+    
+    func calculateOverage() {
+        let remainingDays = daysRemainingInLease()
+        let passedDays = daysPassedInLease()
+        let totalDays = daysTotalInLease()
+        let milesUsed = usedMiles()
+        // take currentmileage - startmileage and divide by days passed, then multiply that by total days in lease. if number is > lease limit then subtract tat number from lease limit and multiply by the overage fee
+        if passedDays == 0{
+            calculatedOverage = "0.00"
+            return
+        }
+        
+        let milesPerDay: Double = Double(milesUsed) / Double(passedDays)
+        print("Miles used: \(milesUsed)")
+        print(passedDays)
+        print("Days passed: \(passedDays)")
+        let expectedEndMileage: Double = milesPerDay * Double(totalDays)
+        print(expectedEndMileage)
+        print("Expected End Mileage: \(expectedEndMileage)")
+        
+        if expectedEndMileage > Double(mainLease?.mileageLimit ?? 0) {
+            let overageMiles = expectedEndMileage - Double(mainLease?.mileageLimit ?? 0)
+            print(overageMiles)
+            let calculatedOverageDouble = overageMiles * (mainLease?.overageFee ?? 0.0)
+            calculatedOverage = String(format: "%.2f", calculatedOverageDouble)
+        } else {
+            calculatedOverage = "0.00"
+        }
+    }
+    
+    func usedMiles() -> Int {
+        return (mainLease?.currentMileage ?? 0) - (mainLease?.startMileage ?? 0 )
+    }
+    
+    func daysRemainingInLease() -> Int {
+        let calendar = Calendar.current
+        
+        // calculate the remaining number of days in the lease period
+        let daysRange = calendar.dateComponents([.day], from: mainLease?.currentDate ?? Date(), to: mainLease?.endDate ?? Date())
+            
+        let remainingDays = daysRange.day!
+        print("Total Days Remaining In Lease: \(remainingDays)")
+        return remainingDays
+    }   
+    
+    func daysTotalInLease() -> Int {
+        let calendar = Calendar.current
+        
+        // calculate the remaining number of days in the lease period
+        let daysRange = calendar.dateComponents([.day], from: mainLease?.startDate ?? Date(), to: mainLease?.endDate ?? Date())
+            
+        let totalDays = daysRange.day!
+        print("Total Days In Lease: \(totalDays)")
+        return totalDays
+    }
+    
+    func daysPassedInLease() -> Int {
+        let calendar = Calendar.current
+        
+        // calculate the remaining number of days in the lease period
+        let daysRange = calendar.dateComponents([.day], from: mainLease?.startDate ?? Date(), to: mainLease?.currentDate ?? Date())
+            
+        let passedDays = daysRange.day!
+        print("Total Days Passed In Lease: \(passedDays)")
+        return passedDays
     }
     
 }
