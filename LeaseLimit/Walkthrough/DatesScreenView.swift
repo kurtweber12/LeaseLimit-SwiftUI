@@ -82,6 +82,7 @@ struct DatesScreenView: View {
                                         isStartDatePresented.toggle()
                                     }
                                     .padding()
+                                    .foregroundColor(.purpleButton)
                                 }
                             }
                         }

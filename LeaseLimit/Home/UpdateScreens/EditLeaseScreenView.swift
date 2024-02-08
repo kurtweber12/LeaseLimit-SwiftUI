@@ -95,6 +95,7 @@ struct EditLeaseScreenView: View {
                                     isStartDatePresented.toggle()
                                 }
                                 .padding()
+                                .foregroundColor(.purpleButton)
                             }
                         }
                     }
@@ -142,6 +143,7 @@ struct EditLeaseScreenView: View {
                                     isEndDatePresented.toggle()
                                 }
                                 .padding()
+                                .foregroundColor(.purpleButton)
                             }
                         }
                     }
@@ -189,6 +191,7 @@ struct EditLeaseScreenView: View {
                                     isCurrentDatePresented.toggle()
                                 }
                                 .padding()
+                                .foregroundColor(.purpleButton)
                             }
                         }
                     }
