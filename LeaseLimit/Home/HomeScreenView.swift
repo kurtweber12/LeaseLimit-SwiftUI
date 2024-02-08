@@ -256,6 +256,7 @@ struct HomeScreenView: View {
             calculatedOverage = "0.00"
             return
         }
+        print(remainingDays)
         
         let milesPerDay: Double = Double(milesUsed) / Double(passedDays)
         print("Miles used: \(milesUsed)")
